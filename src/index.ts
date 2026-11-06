@@ -22,19 +22,15 @@ app.get("/", (_req, res) => {
 app.use("/api/books", booksRouter);
 app.use("/api/borrows", borrowsRouter);
 app.use("/api/auth", authRouter);
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
-const startServer = async () => {
+app.listen(PORT, "0.0.0.0", async () => {
+  console.log(`BookNook Server running on port ${PORT}`);
+
   try {
     await connectDB();
-
-    app.listen(PORT, () => {
-      console.log(`BookNook Server running on port ${PORT}`);
-    });
+    console.log("MongoDB Connected Successfully!");
   } catch (error) {
-    console.error("Server startup failed:", error);
-    process.exit(1);
+    console.error("MongoDB Connection Failed:", error);
   }
-};
-
-startServer();
+});
