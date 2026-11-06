@@ -1,16 +1,12 @@
 {
-  "name": "server",
+  "name": "booknook-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
- "scripts": {
-  "build": "tsc",
-  "start": "node dist/index.js"
-},,
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
